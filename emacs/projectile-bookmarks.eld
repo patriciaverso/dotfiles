@@ -1,0 +1,1 @@
+("~/.config/" "~/Projects/lunr.back.taxi/" "~/Projects/")
