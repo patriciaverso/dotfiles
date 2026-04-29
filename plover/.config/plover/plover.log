@@ -1,0 +1,12 @@
+2026-04-29 06:00:41,358 [MainThread] INFO: setting language to: 
+2026-04-29 06:00:43,377 [MainThread] WARNING: It appears that an input method, such as ibus or fcitx5, is not running on your system. Without this, some text may not be output correctly.
+2026-04-29 06:00:43,535 [Dummy-1] INFO: set_stroke_filename(/home/padi/.config/plover/strokes.log)
+2026-04-29 06:00:43,535 [Dummy-1] INFO: loading system: English Stenotype
+2026-04-29 06:00:43,656 [Dummy-1] INFO: setting machine: Keyboard
+2026-04-29 06:00:45,662 [Dummy-1] INFO: recreating /home/padi/.config/plover/user.json from asset:plover:assets/user.json
+2026-04-29 06:00:45,663 [Dummy-1] INFO: recreating /home/padi/.config/plover/commands.json from asset:plover:assets/commands.json
+2026-04-29 06:00:45,664 [Dummy-1] INFO: recreating /home/padi/.config/plover/main.json from asset:plover:assets/main.json
+2026-04-29 06:00:45,684 [Dummy-1] INFO: loading dictionary: /home/padi/.config/plover/user.json
+2026-04-29 06:00:45,685 [Dummy-1] INFO: loading dictionary: /home/padi/.config/plover/commands.json
+2026-04-29 06:00:45,685 [Dummy-1] INFO: loading dictionary: /home/padi/.config/plover/main.json
+2026-04-29 06:00:45,907 [Dummy-1] INFO: loaded 3 dictionaries in 0.223s
