@@ -42,3 +42,8 @@ warp-terminal/
 xdg-terminals.list
 xed
 Qtrac Ltd./
+\#*#
+emacs/.config/emacs/elpa/*
+emacs/.config/emacs/session*
+emacs/.config/emacs/transient
+emacs/.config/emacs/eln-cache/*
