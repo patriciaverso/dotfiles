@@ -1,18 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-
 (setq org-src-tab-acts-natively t)
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)
@@ -344,3 +330,8 @@
   (setq typescript-indent-level 2))
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+(use-package clojure-mode)
+(setq clojure-indent-style 'always-indent
+    clojure-indent-keyword-style 'always-indent
+    clojure-enable-indent-specs nil)

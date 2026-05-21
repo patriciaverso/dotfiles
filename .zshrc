@@ -60,4 +60,11 @@ eval "$(zoxide init --cmd cd zsh)"
 
 export PATH=/home/patricia/SOCi/soci-tools/bin:$PATH
 
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PATH="$HOME/.local/bin:$PATH"
+export LESSCHARSET=utf-8
+export LC_ALL="en_US.UTF-8"
+export NVM_DIR=~/.nvm
+source "$HOME/.nvm/nvm.sh"

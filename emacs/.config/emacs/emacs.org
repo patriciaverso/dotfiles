@@ -441,6 +441,13 @@ Essa é a configuração do meu Emacs.
   (use-package evil-nerd-commenter
     :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 #+end_src
+*** Clojure
+#+begin_src emacs-lisp
+  (use-package clojure-mode)
+  (setq clojure-indent-style 'always-indent
+      clojure-indent-keyword-style 'always-indent
+      clojure-enable-indent-specs nil)
+#+end_src
 ** Company Mode
 #+begin_src emacs-lisp
 (use-package company
