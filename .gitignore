@@ -47,3 +47,4 @@ emacs/.config/emacs/elpa/*
 emacs/.config/emacs/session*
 emacs/.config/emacs/transient
 emacs/.config/emacs/eln-cache/*
+*.log
