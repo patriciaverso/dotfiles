@@ -1,0 +1,51 @@
+#+title: README.org - Minha configuração do Emacs
+
+* Funções custom
+** Markdown link to Org link
+O Zen Browser me dá os links em Markdown, então eu preciso converter para Org.
+#+begin_src elisp :tangle init.el
+  (defun md-link-to-org-link ()
+    "Converte link de Markdown para Org"
+    (interactive)
+    (when (region-active-p)
+      (save-excursion
+        (replace-regexp "\\[\\(.*\\)\\](\\(.*\\))" "[[\\2][\\1]]" nil (region-beginning) (region-end))
+        )))
+  (add-hook 'org-mode-hook
+  	  (lambda ()
+  	    (keymap-set org-mode-map "C-c C-g" 'md-link-to-org-link)
+  	    )
+  	  )
+#+end_src
+=C-c C-g= agora converte o link markdown selecionado pro formato Org.
+=(interactive)= é necessário para poder fazer o /keybind/.
+=(save-excursion)= grava onde o cursor estava quando o código foi executado e retorna quando acaba.
+=region-active-p= retorna =t= se tem texto selecionado e =nil= se não.
+
+* Terminal
+Usar terminal no Emacs tem sido a pior coisa dessa experiência de longe. Vamos ver como dá pra melhorar.
+[[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Running Shells and Terminal Emulators in Emacs - Mastering Emacs]]
+- Todos os shells derivam de um modo chamado =comint-mode=.
+  
+E eu fiquei nessa. É inacreditável como é confuso isso. Vou tentar postergar ao máximo ter que usar um terminal.
+
+* Melhorando a UI
+A UI do Emacs é bem feinha, bora melhorar
+#+begin_src elisp :tangle init.el
+  (setq inhibit-startup-message t)
+  (global-hl-line-mode 1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tooltip-mode -1)
+  (set-fringe-mode 10)
+  (menu-bar-mode -1)
+
+  (setq visible-bell t)
+#+end_src
+
+* Org mode
+** Lilypond
+#+begin_src elisp :tangle init.el
+  (setq load-path (append (list (expand-file-name "~/.config/emacs/site-packages/lilypond/share/emacs/site-lisp")) load-path))
+  (load-file "~/.config/emacs/site-packages/lilypond/share/emacs/site-lisp/lilypond-init.el")
+#+end_src

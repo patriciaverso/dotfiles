@@ -1,0 +1,61 @@
+% Created 2026-06-28 Sun 10:29
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{README.org - Minha configuração do Emacs}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={README.org - Minha configuração do Emacs},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.2 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Funções custom}
+\label{sec:org9898316}
+\subsection{Markdown link to Org link}
+\label{sec:org73bd5f6}
+O Zen Browser me dá os links em Markdown, então eu preciso converter para Org.
+\begin{verbatim}
+(defun md-link-to-org-link ()
+  "Converte link de Markdown para Org"
+  (interactive)
+  (when (region-active-p)
+    (save-excursion
+      (replace-regexp "\\[\\(.*\\)\\](\\(.*\\))" "[[\\2][\\1]]" nil (region-beginning) (region-end))
+      )))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (keymap-set org-mode-map "C-c C-g" 'md-link-to-org-link)
+            )
+          )
+\end{verbatim}
+\texttt{C-c C-g} agora converte o link markdown selecionado pro formato Org.
+\texttt{(interactive)} é necessário para poder fazer o \emph{keybind}.
+\texttt{(save-excursion)} grava onde o cursor estava quando o código foi executado e retorna quando acaba.
+\texttt{region-active-p} retorna \texttt{t} se tem texto selecionado e \texttt{nil} se não.
+\section{Terminal}
+\label{sec:orgdf55e80}
+Usar terminal no Emacs tem sido a pior coisa dessa experiência de longe. Vamos ver como dá pra melhorar.
+\href{https://www.masteringemacs.org/article/running-shells-in-emacs-overview}{Running Shells and Terminal Emulators in Emacs - Mastering Emacs}
+\begin{itemize}
+\item Todos os shells derivam de um modo chamado \texttt{comint-mode}.
+\end{itemize}
+
+E eu fiquei nessa. É inacreditável como é confuso isso. Vou tentar postergar ao máximo ter que usar um terminal.
+\end{document}

@@ -1,0 +1,8 @@
+(defun md-link-to-org-link ()
+  (replace-regexp "[\(.*\)](\(.*\))" "[[\2][\1]]")
+  )
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (keymap-set org-mode-map "C-c C-g" 'md-link-to-org-link)
+	    )
+	  )
